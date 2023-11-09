@@ -56,20 +56,20 @@ const dotsContainer = banner.querySelector(".dots");
 // Parcours de chaque diapositive dans le tableau "slides" en utilisant une boucle forEach
 slides.forEach((slide, index) => {
 
-  // Crée un élément "div" pour représenter un point (dot)
-  const dot = document.createElement("div");
+  // Crée un élément "div" pour représenter un point 
+  const div = document.createElement("div");
 
   // Ajout de la classe "dot" à cet élément
-  dot.classList.add("dot");
+  div.classList.add("dot");
 
   // Si l'index de la diapositive est égal à currentSlide, ajoute la classe "dot_selected" pour indiquer que la diapositive est active par défaut
   if (index === currentSlide) {
-    dot.classList.add("dot_selected");
+    div.classList.add("dot_selected");
   }
 
   // Ajout d'un écouteur d'événements "click" à chaque point pour gérer le clic de l'utilisateur
-  dot.addEventListener("click", () => {
-    // Clic sur un point
+  div.addEventListener("click", () => {
+    console.log("bullet point cliqué");
 
     // Mettre à jour la diapositive actuelle en fonction de l'index du point
     currentSlide = index;
@@ -78,8 +78,8 @@ slides.forEach((slide, index) => {
     updateCarousel();
   });
 
-  // Ajout de l'élément "dot" créé à l'élément "dotsContainer", qui contient tous les points
-  dotsContainer.appendChild(dot);
+  // Ajout de l'élément "div" créé à l'élément "dotsContainer", qui contient tous les points
+  dotsContainer.appendChild(div);
 });
 
 // Sélection de l'élément contenant l'image du carrousel
@@ -102,11 +102,11 @@ function updateCarousel() {
 
   // Mise à jour des points pour indiquer la diapositive active
   const dots = dotsContainer.querySelectorAll(".dot");
-  dots.forEach((dot, index) => {
+  dots.forEach((div, index) => {
     if (index === currentSlide) {
-      dot.classList.add("dot_selected");
+      div.classList.add("dot_selected");
     } else {
-      dot.classList.remove("dot_selected");
+      div.classList.remove("dot_selected");
     }
   });
 }
